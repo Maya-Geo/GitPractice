@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+// Linked List Example
+
+// Node1: data = 10, next = Node 2
+// Node2:data = 20, next =Node 3
+// Node3:data = 30, next = null
+
+
+
+const n1 = {
+	data: 100,
+	next: null
+};
+
+const n2 = {
+	data: 200,
+	next: null
+};
+
+n1.next = n2;
+
+console.log(n1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Question1
+class ListNode {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+// Define the linked list
+let head = new ListNode(1);
+head.next = new ListNode(2);
+head.next.next = new ListNode(3);
+
+
+head.next.next.next = new ListNode(4);
+head.next.next.next.next = new ListNode(5);
+
+// Define the reverseLinkedList function
+function reverseLinkedList(head) {
+  let prevNode = null;
+  let currentNode = head;
+
+  while (currentNode !== null) {
+    let nextNode = currentNode.next;
+    currentNode.next = prevNode;
+    prevNode = currentNode;
+    currentNode = nextNode;
+  }
+
+  return prevNode;
+}
+
+// Reverse the linked list
+let reversedList = reverseLinkedList(head);
+
+// Print the reversed list
+while (reversedList !== null) {
+  console.log(reversedList.val);
+  reversedList = reversedList.next;
+}
+
+
+
+
+
+
+
+// // Question2
+// class Node {
+//   constructor(data) {
+//     this.data = data;
+//     this.next = null;
+//   }
+// }
+
+// class LinkedList {
+//   constructor() {
+//     this.head = null;
+//   }
+
+//   addNode(data) {
+//     const newNode = new Node(data);
+//     if (!this.head) {
+//       this.head = newNode;
+//       return;
+//     }
+//     let current = this.head;
+//     while (current.next) {
+//       current = current.next;
+//     }
+//     current.next = newNode;
+//   }
+
+//   findMiddleNode() {
+//     let slow = this.head;
+//     let fast = this.head;
+
+//     while (fast && fast.next) {
+//       slow = slow.next;
+//       fast = fast.next.next;
+//     }
+
+//     return slow.data;
+//   }
+// }
+
+// // create a linked list
+// const llist = new LinkedList();
+// llist.addNode(1);
+// llist.addNode(2);
+// llist.addNode(3);
+// llist.addNode(4);
+// llist.addNode(5);
+
+// // find the middle node
+// const middleNode = llist.findMiddleNode();
+// console.log(middleNode);  // Output: 3
+
+
+
+
+// // create two linked lists to add
+// function addLinkedLists(list1, list2) {
+//   let carry = 0;
+//   let sumList = new LinkedList();
+
+//   let current1 = list1.head;
+//   let current2 = list2.head;
+
+//   while (current1 || current2 || carry) {
+//     const value1 = current1 ? current1.data : 0;
+//     const value2 = current2 ? current2.data : 0;
+
+//     const sum = value1 + value2 + carry;
+//     carry = Math.floor(sum / 10);
+//     const digit = sum % 10;
+
+//     sumList.addNode(digit);
+
+//     current1 = current1 ? current1.next : null;
+//     current2 = current2 ? current2.next : null;
+//   }
+
+//   return sumList;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Question4 
+// function removeDuplicates(head) {
+//   let current = head;
+//   while (current !== null) {
+//     let runner = current;
+//     while (runner.next !== null) {
+//       if (runner.next.val === current.val) {
+//         runner.next = runner.next.next;
+//       } else {
+//         runner = runner.next;
+//       }
+//     }
+//     current = current.next;
+//   }
+//   return head;
+// }
+
+// console.log(removeDuplicates(head));
+
+
+
+
+// // question 10
+// function addTwoNumbers(l1, l2) {
+//   let carry = 0;
+//   let result = new ListNode(0);
+//   let current = result;
+//   while (l1 !== null || l2 !== null) {
+//     let sum = carry;
+//     if (l1 !== null) {
+//       sum += l1.val;
+//       l1 = l1.next;
+//     }
+//     if (l2 !== null) {
+//       sum += l2.val;
+//       l2 = l2.next;
+//     }
+//     current.next = new ListNode(sum % 10);
+//     carry = Math.floor(sum / 10);
+//     current = current.next;
+//   }
+//   if (carry > 0) {
+//     current.next = new ListNode(carry);
+//   }
+//   return result.next;
+// }
+
+// class ListNode {
+
+
+//   constructor(val = 0, next = null) {
+//     this.val = val;
+//     this.next = next;
+//   }
+// }
+
+
+
+
+// Question4
+// let listHead = new ListNode(1);
+// listHead.next = new ListNode(2);
+// listHead.next.next = new ListNode(2);
+// listHead.next.next.next = new ListNode(3);
+// listHead.next.next.next.next = new ListNode(4);
+
+// console.log(removeDuplicates(listHead)); // Output: ListNode { val: 1, next: ListNode { val: 2, next: ListNode { val: 3, next: ListNode { val: 4, next: null } } } }
+
+// To fix the error, you can either assign a value to n1 and n2 when declaring them, or use let instead of const if you plan on reassigning their values later.
+// In this code, I added next: null as a property to both n1 and n2, since they seem to be nodes in a linked list. Then I assigned n2 to the next property of n1. Finally, I logged n1 to the console to verify that it was set up correctly.
+
+
+
+	</script>
+
+</body>
+</html>

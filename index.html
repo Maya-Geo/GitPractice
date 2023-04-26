@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Hello World</h1>
+
+	<script type="text/javascript">
+		// const arr =[1,2,3, "Sana"]
+         //arr.push(4)
+
+		//for (const item of arr) {
+		// console.log(item)    
+ //   }
+
+
+
+
+
+// Number 1
+function findMaxOrMin(arr, isMax=true) {
+  /*
+   * Find the maximum or minimum element in an array.
+   *
+   *  {array} arr - The input array.
+   *  {boolean} isMax - If true, find the maximum element. Otherwise, find the minimum element.
+   * @return {number} - The maximum or minimum element in the array.
+   */
+
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let maxOrMin = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (isMax && arr[i] > maxOrMin) {
+      maxOrMin = arr[i];
+    } else if (!isMax && arr[i] < maxOrMin) {
+      maxOrMin = arr[i];
+    }
+  }
+
+  return maxOrMin;
+}
+
+console.log(findMaxOrMin([2,3,4,5,6,7], false))
+
+
+
+
+ // Number 2
+function reverseArray(arr) {
+    let newArr = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+      newArr.push(arr[i]);
+    }
+    return newArr;
+  }
+
+  console.log(reverseArray([2,4,5,6,7,8,9,10]))
+
+
+
+
+
+  // Question 3
+ function findSum(arr) {
+  /*
+   * Find the sum of all elements in an array.
+   *
+   * {array} arr - The input array.
+   * return {number}  The sum of all elements in the array.
+   */
+
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+console.log(findSum([2,3,4,5,6]));
+
+
+
+
+// Question 4
+function isSorted(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < arr[i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+
+
+console.log(removeDuplicates([2,3,4,]))
+
+
+
+// Number 6
+function intersection(arr1, arr2) {
+//function takes two array arguments, arr1 and arr2
+   let result = [];
+ //An empty array result is initialized.
+  for(let i=0; i<arr1.length; i++){ 
+   //The loop runs as many times as there are elements in arr1. 
+    if(arr2.includes(arr1[i])){    
+       //the current element in arr1 is checked to see if it is included in arr2 using the includes method.                         
+      result.push(arr1[i]);        
+    }
+  }                       //If the current element is included in arr2,
+                          //it is added to the result array using the push method
+  return result;  
+}
+console.log(intersection([1, 2, 3], [2, 3, 4])); // Output: [2, 3]
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
