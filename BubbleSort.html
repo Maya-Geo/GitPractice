@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+    // Loop from with a variable called i the end of array towards the beginning
+    // start an inner loop with a variable called j from the beginning until i-1
+    // if arr[i] is greater than arr[j+1] swap those two values!
+    // Return the sorted array
+
+		function bubbleSort(arr) {
+		for(var i = 0; i < arr.length; i++){
+			for (var j = 0; j < arr.length; j++){
+				console.log(arr)
+				if(arr[j] > arr [j+1]){
+					// Swap
+
+					var temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+
+		}
+
+			}
+
+			return arr;
+		}
+
+		bubbleSort([37, 455,29, 8])
+		// [37, 45, 29, 8]
+		// [37, 29, 8, 45]
+		// [29,8 37, 45]
+
+
+
+
+
+// // Write a function to sort an array of integers using the bubble sort algorithm.
+  function bubbleSort(arr) {
+    const n = arr.length;
+    let swapped;
+
+    for (let i = 0; i < n - 1; i++) {
+      swapped = false;
+
+      for (let j = 0; j < n - i - 1; j++) {
+        // Compare adjacent elements
+        if (arr[j] > arr[j + 1]) {
+          // Swap the elements if they are in the wrong order
+          [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+          swapped = true;
+        }
+      }
+
+      // If no two elements were swapped in the inner loop, the array is already sorted
+      if (!swapped) {
+        break;
+      }
+    }
+
+    return arr;
+  }
+
+  const unsortedArray = [64, 34, 25, 12, 22, 11, 90];
+  const sortedArray = bubbleSort(unsortedArray);
+
+  console.log(sortedArray); // Output: [11, 12, 22, 25, 34, 64, 90]
+
+
+
+
+
+//   function isSorted(arr) {
+//   // Clone the array to avoid modifying the original array
+//   const sortedArr = arr.slice();
+
+//   // Bubble sort algorithm
+//   for (let i = 0; i < sortedArr.length - 1; i++) {
+//     let swapped = false;
+
+//     for (let j = 0; j < sortedArr.length - i - 1; j++) {
+//       if (sortedArr[j] > sortedArr[j + 1]) {
+//         // Swap elements
+//         [sortedArr[j], sortedArr[j + 1]] = [sortedArr[j + 1], sortedArr[j]];
+//         swapped = true;
+//       }
+//     }
+
+//     // If no two elements were swapped, the array is already sorted
+//     if (!swapped) {
+//       return true;
+//     }
+//   }
+
+//   // If the loop finishes and no return true was reached, the array is not sorted
+//   return false;
+// }
+
+
+// // Test cases
+// const array1 = [1, 2, 3, 4, 5];
+// console.log(isSorted(array1)); // true
+
+
+
+// const array2 = [5, 4, 3, 2, 1];
+// console.log(isSorted(array2)); // false
+
+
+ 
+	</script>
+
+</body>
+</html>
