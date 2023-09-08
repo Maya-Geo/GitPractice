@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Binary List</title>
+</head>
+<body>
+
+ <script type="text/javascript">
+ 	
+
+ // Convert a binary number to its decimal representation.
+// Question 1
+ 	function binaryToDecimal(binary) {
+  // Initialize the decimal value
+  let decimal = 0;
+  
+  // Iterate through the binary list from left to right
+  for (let i = binary.length - 1; i >= 0; i--) {
+    // Multiply the current bit by 2 raised to the power of its position
+    decimal += binary[i] * Math.pow(2, binary.length - 1 - i);
+  }
+  
+  // Return the decimal value
+  return decimal;
+}
+
+const binaryList = [1, 0, 1, 0, 1]; 
+const decimal = binaryToDecimal(binaryList);
+console.log(decimal); // Output: 21
+
+
+
+// Convert a decimal number to its binary representation
+// Question2
+function decimalToBinary(decimal) {
+  let binaryList = [];
+
+  while (decimal > 0) {
+    binaryList.unshift(decimal % 2);
+    decimal = Math.floor(decimal / 2);
+  }
+
+  return binaryList;
+}
+
+const decimalNumber = 42;
+const binaryRepresentation = decimalToBinary(decimalNumber);
+console.log(binaryRepresentation);
+
+
+	// Question3
+	// Perform bitwise operations such as AND, OR, XOR, and NOT on binary numbers.
+  
+
+  // question4
+  // Check if a given binary number is a palindrome (reads the same forwards and backwards).
+
+ </script>
+
+
+</body>
+</html>
