@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Binary Tree</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+// Question1
+// Check if two binary trees are identical in data structures
+class TreeNode {
+  constructor(value) {
+    this.val = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+// Perform inorder traversal and store the node values in an array
+function inorderTraversal(node, sequence) {
+  if (node === null) {
+    sequence.push(null);
+    return;
+  }
+
+  inorderTraversal(node.left, sequence);
+  sequence.push(node.val);
+  inorderTraversal(node.right, sequence);
+}
+
+// Check if two binary trees are structurally identical
+function areIdentical(tree1, tree2) {
+  const sequence1 = [];
+  const sequence2 = [];
+
+  inorderTraversal(tree1, sequence1);
+  inorderTraversal(tree2, sequence2);
+
+  // Compare the sequences obtained from both trees
+  return JSON.stringify(sequence1) === JSON.stringify(sequence2);
+}
+
+// Example usage:
+const tree1 = new TreeNode(1);
+tree1.left = new TreeNode(2);
+tree1.right = new TreeNode(3);
+tree1.left.left = new TreeNode(4);
+tree1.left.right = new TreeNode(5);
+
+const tree2 = new TreeNode(1);
+tree2.left = new TreeNode(2);
+tree2.right = new   TreeNode(3);
+tree2.left.left = new TreeNode(4);
+tree2.left.right = new TreeNode(5);
+
+console.log(areIdentical(tree1, tree2)); // Output: true
+// console.log()
+
+
+
+
+
+
+
+
+
+
+ 
+// question2
+// Find the height of a binary tree.
+	class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function getHeight(root) {
+  if (root === null) {
+    return 0;
+  } else {
+    // Recursively calculate the height of the left and right subtrees
+    const leftHeight = getHeight(root.left);
+    const rightHeight = getHeight(root.right);
+    
+    // Return the maximum height between the left and right subtrees
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
+}
+
+// Create a binary tree
+const root = new Node(5);
+root.left = new Node(3);
+root.right = new Node(8);
+root.left.left = new Node(2);
+root.left.right = new Node(4);
+root.right.left = new Node(7);
+root.right.right = new Node(9);
+
+// Calculate the height of the binary tree
+const height = getHeight(root);
+console.log("Height of the binary tree:", height);
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
