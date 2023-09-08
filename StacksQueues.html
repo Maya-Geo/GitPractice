@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		
+	 //Stacks and Queues
+// 	  class Stack{
+// 	  	constructor(){
+// 	  		this.items =[]
+// 	  		this.count = 0
+// 	  	}
+
+// 	  	// add element to top of stack
+// 	  	push(element){ 
+// 	  		this.items[this.count] = element
+// 	  		this.count += 1
+// 	  		console.log(`${element} added  to ${this.count}`)
+// 	  		return this.count - 1
+// 	  	}
+
+// 	  	// return and remove top element
+// 	  	// return undefined stack if stack empty
+
+// 	  	pop(){
+// 	  		if(this.count == 0) return undefined
+// 	  			let deleteItem = this.items[this.count - 1]
+// 	  		    this.count -= 1
+// 	  		    console.log(`${deleteItem} removed`)
+
+// 	  		    return deleteItem
+// 	  	}
+
+
+// 	  	// check top element in stack
+// 	  	peek(){
+// 	  		console.log(`Top element is ${this.items[this.count - 1]}`)
+// 	  		return this.items[this.count - 1]
+// 	  	} 
+
+// 	  	// check if stack is empty
+// 	  	isEmpty(){
+// 	  		console.log(this.count == 0 ? 'Stack is empty ': 'Stack is not empty')
+// 	  		return this.count == 0
+// 	  	}
+
+// 	  	// check the size in stack
+// 	  	size(){
+// 	  		console.log(`${this.count} element in stack`)
+// 	  		return this.count
+// 	  	}
+        
+
+//         // print element in stack
+//         print(){
+//         	let str =''
+//         	for(let i =0; i < this.count; i++){
+//              str += this.items[i] + ' '
+
+//         	}
+//         	return str
+//         }
+
+//         // clear stack
+//         clear(){
+//         	this.items =[]
+//         	this.count = 0
+//         	console.log('stack cleared....')
+//         	return this.items
+//         }
+// 	  }
+
+
+
+//       // intialize a variable
+// 	  const stack = new Stack()
+
+// 	  // create a method
+// 	   stack.isEmpty()
+// 	  console.log(stack.pop(100))
+
+// 	  stack.push(100) 
+// 	  stack.push(200)
+// 	  stack.push(300)
+
+// 	  console.log(stack.print())
+
+// 	  stack.clear()
+
+
+// 	  stack.peek()
+
+// 	  stack.pop()
+// 	  stack.pop()
+// 	  stack.size()
+
+// 	  console.log(stack.pop())
+// 	  stack.isEmpty()
+
+     
+
+
+
+
+
+
+
+//      // Question 1
+// 	        function reverseStack(stack) {
+// 	  const tempStack = [];
+// 	  while (stack.length > 0) {
+// 	    const item = stack.pop();
+// 	    tempStack.push(item);
+// 	  }
+// 	  while (tempStack.length > 0) {
+// 	    const item = tempStack.pop();
+// 	    stack.push(item);
+// 	  }
+// 	  return stack;
+// 	}
+// 	  const myStack = [1, 2, 3, 4, 5];
+//   	  console.log(reverseStack()); // [5, 4, 3, 2, 1]
+
+		
+
+
+
+
+
+
+
+
+// //  // Question 3
+//   class QueueWithTwoStacks {
+//   constructor() {
+//     this.stack1 = [];
+//     this.stack2 = [];
+//   }
+
+//   enqueue(item) {
+//     this.stack1.push(item);
+//   }
+
+//   dequeue() {
+//     if (this.stack1.length === 0 && this.stack2.length === 0) {
+//       return null; // queue is empty
+//     }
+
+//     if (this.stack2.length === 0) {
+//       while (this.stack1.length > 0) {
+//         const item = this.stack1.pop();
+//         this.stack2.push(item);
+//       }
+//     }
+
+//     return this.stack2.pop();
+//   }
+// }
+
+
+// const myQueue = new QueueWithTwoStacks();
+// myQueue.enqueue(1);
+// myQueue.enqueue(2);
+// myQueue.enqueue(3); 
+// console.log(myQueue.dequeue()); // 1
+// console.log(myQueue.dequeue()); // 2
+// myQueue.enqueue(4);
+// console.log(myQueue.dequeue()); // 3
+// console.log(myQueue.dequeue()); // 4
+// console.log(myQueue.dequeue()); // null (queue is empty)
+
+
+
+
+
+
+
+
+
+
+//stack
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Stack {
+  constructor() {
+    this.top = null;
+    this.bottom = null;
+    this.length = 0;
+  }
+
+  peek() {
+    return this.top;
+  }
+
+  push(value) {
+    const newNode = new Node(value);
+    if (this.length === 0) {
+      this.top = newNode;
+      this.bottom = newNode;
+    } else {
+      const holdingPointer = this.top;
+      this.top = newNode;
+      this.top.next = holdingPointer;
+    }
+    
+    this.length++; 
+    return this;
+  }
+
+  pop() {
+    if (this.length === 0) {
+      return null; // Handle empty stack
+    }
+    if (this.top === this.bottom) {
+      this.bottom = null;
+    }
+    this.top = this.top.next;
+    this.length--;
+    return this;
+  }
+}
+
+let myStack = new Stack();
+// myStack.push("google")
+// myStack.push("udemy")
+myStack.pop();
+myStack.pop();
+console.log(myStack, "hi");
+
+
+
+
+
+
+
+
+
+
+// // queue
+// class Node {
+//     constructor(value){
+//       this.value = value;
+//       this.next = value;
+//     }
+// }
+
+// // Queues
+// class Queue {
+//    constructor (){
+//     this.first = null;
+//     this.last = null;
+//     this.length = 0;
+//    }
+
+//    peek (){
+//     return this.first
+//    }
+
+//    enqueue(value){
+
+//     let newNode = new Node(value);
+//     if (this.length == 0){
+//        this.first = newNode;
+//        this.last = newNode;
+
+//     }
+//     else {
+//         this.last.next = newNode; 
+//         this.last = newNode;
+         
+        
+        
+//     }
+
+
+   
+//     this.length++;
+//     return this;
+
+//   }
+
+//   dequeue(){
+//     if(length === 0){
+//         return  null
+//     }
+
+//     if (this.first === this.last ){
+        
+//         this.first = null;
+//         this.first.next = null
+
+//     }
+
+//     this.first = this.first.next;
+//     this.length--;
+//     return this
+//   }
+
+
+
+// }
+
+// const myQueue = new Queue()
+// myQueue.enqueue(50)
+// myQueue.enqueue(90)
+// // myQueue.enqueue(1000)
+// // myQueue.dequeue()
+// // myQueue.dequeue()
+// // myQueue.dequeue()
+
+// console.log(myQueue)
+
+
+
+
+        //implement queues using stack
+
+
+
+// class Node {
+//     constructor(value){
+//       this.value = value;
+//       this.next = null;
+//     }
+// }
+
+// // stack
+// class Stack {
+
+//     constructor(){
+//         this.top = null;
+//         this.buttom = null;
+//         this.length = 0;
+//     }
+
+//     peeK(){
+      
+//         return this.top
+        
+//     }
+//     push(value){
+
+//         const newNode = new Node(value);
+//         if (this.length ===  0) {
+//             this.top = newNode;
+//             this.buttom = newNode;
+//         } 
+
+//            else 
+//            {
+
+//             const holdingPointer = this.buttom;
+//             this.buttom = newNode;
+//             this.buttom.next = holdingPointer;
+//            }
+
+//         this.length++;
+//         return this;
+            
+//         }
+//     pop(){
+
+//         if (this.top === this.buttom){
+//             this.buttom = null
+//         }
+
+//         this.top = this.top.next;
+//         this.length--;
+//         return this
+
+//     }
+// }
+
+
+// let myStack = new Stack();
+// myStack.push(10)
+// // myStack.push("google")
+
+
+// console.log(myStack)
+
+
+
+ </script>
+
+
+
+
+
+
+
+</body>
+</html>
+
